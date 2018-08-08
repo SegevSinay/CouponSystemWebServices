@@ -19,8 +19,8 @@ import com.exceptions.CouponSystemException;
 import com.facade.CustomerFacade;
 
 /*
- * Contains the coupon store Customer services – reviewing all coupons, 
- * purchase coupons and reviewing Customer’s purchasing history.
+ * Contains the coupon store Customer services â€“ reviewing all coupons, 
+ * purchase coupons and reviewing Customerâ€™s purchasing history.
  **/
 @Path("service/customer")
 public class CustomerServices {
@@ -161,9 +161,6 @@ public class CustomerServices {
 			throws CouponSystemException {
 		try {
 			CustomerFacade custf = (CustomerFacade) request.getSession(false).getAttribute("FACADE");
-			// CouponSystem cs = CouponSystem.getInstance();
-			// CustomerFacade custf = (CustomerFacade) cs.login("Dani", "Dani1234",
-			// ClientType.CUSTOMER);
 			Collection<Coupon> allCouponsByPrice = custf.getAllCouponsByPrice(price);
 			return Response.status(Response.Status.OK).type(MediaType.APPLICATION_JSON)
 					.entity(allCouponsByPrice.toArray(new Coupon[0])).build();
